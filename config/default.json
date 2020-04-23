@@ -1,0 +1,23 @@
+{
+    "mysql": {
+        "connectionLimit": 50,
+        "host": "localhost",
+        "port": 3306,
+        "user": "root",
+        "password": "",
+        "database": "auction",
+        "inseecureAuth": true
+    },
+    "paginate": {
+        "limit": 10,
+        "limit1": 12
+    },
+    "bcrypt": {
+        "init": 10
+    },
+    "nodemailer": {
+        "user": "greatestauctionever",
+        "pass": "greatestauctionever123456789",
+        "email": "greatestauctionever@gmail.com"
+    }
+}

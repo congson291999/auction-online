@@ -1,0 +1,81 @@
+<div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor"></h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                <li class="breadcrumb-item active">Wishlist</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Wishlist</h4>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name Product</th>
+                                                <th>Image</th>
+                                                <th>Price</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {{#each list}}
+                                            <tr>
+                                                <td>{{product_id}}</td>
+                                                <td>{{name}}</td>
+                                                <td>
+                                                    <img src="/images/product/{{product_id}}/1.jpg" height="60px">
+                                                    <img src="/images/product/{{product_id}}/2.jpg" height="60px">
+                                                    <img src="/images/product/{{product_id}}/3.jpg" height="60px">
+                                                </td>
+                                                <td>{{price_start}}</td>
+                                                <td class="text-nowrap">
+                                                    <a href="javascript:void(0);" id="delete" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-close text-danger p-r-5"></i> </a>
+                                                    <a href="/product/{{product_id}}" data-toggle="tooltip" data-original-title="View"> <i class="fa fa-eye text-inverse"></i> </a>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+    </div>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script>
+    $('#delete').on("click", function(){
+        var tr =$(this).parents('tr').first();
+        var child= tr.children();
+        var id=parseInt(child[0].innerHTML);
+        $.post('/bidder/wishlist/delete', {id:id});
+        tr.remove();
+    });
+</script>

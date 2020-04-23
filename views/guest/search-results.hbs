@@ -1,0 +1,110 @@
+<!-- Content
+============================================= -->
+<section id="content">
+    <p style="display:none">{{user.id}}</p>
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+            <h3>Search Results: {{key}}</h3>
+            <!-- Shop ============================================= -->
+            <div id="shop" class="shop grid-container clearfix" data-layout="fitRows">
+                {{#each data}}
+                {{#if new}}
+
+                <div class="product clearfix">
+                    <div class="product-image">
+                        <div class="fslider" data-arrows="false">
+                            <div class="flexslider">
+                                <div class="slider-wrap">
+                                    <div class="slide"><a href="/product/{{id}}"><img src="/images/product/{{id}}/1.jpg" alt="Dark Brown Boots"></a></div>
+									<div class="slide"><a href="/product/{{id}}"><img src="/images/product/{{id}}/2.jpg" alt="Dark Brown Boots"></a></div>
+								    <div class="slide"><a href="/product/{{id}}"><img src="/images/product/{{id}}/3.jpg" alt="Dark Brown Boots"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-overlay">
+                            <p style="display:none">{{id}}</p>
+                            <a href="javascript:void(0);"  id="add"><i class="icon-heart"></i><span> Wish list</span></a>
+                            {{!-- <a href="/include/ajax/shop-item.hbs" class="item-quick-view" data-lightbox="ajax"><i class="icon-eye"></i><span> Quick View</span></a> --}}
+                        </div>
+                    </div>
+                    <div class="product-desc">
+                        <div class="product-title">
+                            <h3><a href="/product/{{id}}">{{name}} <p style="color:crimson ">New</p> </a></h3>
+                        </div>
+                        <div class="product-price">Price: {{price_start}}-{{price_end}}</div>
+                        {{#if buy_now}}<div class="product-price">Buy now: {{buy_now}}</div>{{/if}}
+                        <div class="product-remaining-time">Remaining time: {{end_time}}</div>
+                    </div>
+                </div>
+                {{else}}
+                 <div class="product clearfix">
+                    <div class="product-image">
+                        <div class="fslider" data-arrows="false">
+                            <div class="flexslider">
+                                <div class="slider-wrap">
+                                    <div class="slide"><a href="/product/{{id}}"><img src="/images/product/{{id}}/1.jpg" alt="Dark Brown Boots"></a></div>
+									<div class="slide"><a href="/product/{{id}}"><img src="/images/product/{{id}}/2.jpg" alt="Dark Brown Boots"></a></div>
+								    <div class="slide"><a href="/product/{{id}}"><img src="/images/product/{{id}}/3.jpg" alt="Dark Brown Boots"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-overlay">
+                            <p style="display:none">{{id}}</p>
+                            <a href="javascript:void(0);"  id="add"><i class="icon-heart"></i><span> Wish list</span></a>
+                            {{!-- <a href="/include/ajax/shop-item.hbs" class="item-quick-view" data-lightbox="ajax"><i class="icon-eye"></i><span> Quick View</span></a> --}}
+                        </div>
+                    </div>
+                    <div class="product-desc">
+                        <div class="product-title">
+                            <h3><a href="/product/{{id}}">{{name}}</a></h3>
+                        </div>
+                        <div class="product-price">Price: {{price_start}}-{{price_end}}</div>
+                        {{#if buy_now}}<div class="product-price">Buy now: {{buy_now}}</div>{{/if}}
+                        <div class="product-remaining-time">Remaining time: {{end_time}}</div>
+                    </div>
+                </div>                             
+                {{/if}}
+                {{/each}}
+            </div>
+            
+            <!-- #shop end -->
+            <nav aria-label="" class="mt-3">
+                <ul class="pagination">
+                    <li class="{{#if not_prev}}disabled{{/if}}">
+                    <a class="page-link text-dark" href="?page={{prev_value}}" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    {{#each this.page_numbers}}
+                    {{#if isCurrentPage}}
+                        <li class="active" aria-current="page">
+                            <a class="page-link" href="javascript:;">{{value}} <span class="sr-only">(current)</span></a>
+                        </li>
+                    {{else}}
+                        <li>
+                            <a class="page-link text-dark" href="?page={{value}}">{{value}}</a>
+                        </li>
+                    {{/if}}
+                    {{/each}}
+                    <li class="{{#if not_next}}disabled{{/if}}">
+                    <a class="page-link text-dark" href="?page={{next_value}}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+</section>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script>
+    $('#add').on("click", function(){
+        var div =$(this).parents('div').first();
+        var child= div.children();
+        var id=parseInt(child[0].innerHTML);
+        $.post('/wishlist/add', {id:id});
+    });
+</script>
+<!-- #content end -->

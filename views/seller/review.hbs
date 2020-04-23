@@ -1,0 +1,22 @@
+
+<div>
+     <div class="card bg-warning text-white">
+            <div class="card-body"><h1 class="text-center">REVIEWS</h1></div>
+        </div>
+</div>
+<br>
+<br>
+<br>
+<div>
+    {{#each review}}
+    {{#if good}}
+        <div class="card bg-info text-white col-md-5">
+            <div class="card-body">{{review}}</div>
+        </div>
+    {{esle}}
+        <div class="card bg-danger text-white col-md-5">
+            <div class="card-body">{{review}}</div>
+        </div>
+    {{/if}}
+    {{/each}}
+</div>

@@ -1,0 +1,89 @@
+
+<div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor"></h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Product</a></li>
+                                <li class="breadcrumb-item active"> Remaining Product</li>
+                            </ol>
+                            <a class="btn btn-info d-none d-lg-block m-l-15" href="product-add.html" role="button"><i class="fa fa-plus-circle"></i> Create New</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Info box Content -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Remaining Product</h4>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name Product</th>
+                                                <th>Image</th>
+                                                <th>Start Price</th>
+                                                <th>End Price</th>
+                                                <th>Step Price</th>
+                                                <th>Buy now</th>
+                                                <th>Remaining Time</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {{#each items}}
+                                                <tr>
+                                                    <td>{{id}}</td>
+                                                    <td>{{name}}</td>
+                                                    <td>
+                                                        <img src="../images/product/{{id}}/1.jpg" height="100px">
+                                                        <img src="../images/product/{{id}}/2.jpg" height="100px">
+                                                        <img src="../images/product/{{id}}/3.jpg" height="100px">
+                                                    </td>
+                                                    <td>{{price_start}}</td>
+                                                    <td>{{price_end}}</td>
+                                                    <td>{{step}}</td>
+                                                    <td>{{buy_now}}</td>
+                                                    <td>6days 07:50:53</td>
+                                                    <td>
+                                                        <button  class="col-12 btn btn-success mr-1 view">View</button>
+                                                    </td>
+                                                </tr>
+                                            {{/each}}
+                                         </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+
+            </div>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+    $('.view').on("click", function(){
+        var tr =$(this).parents('tr').first();
+        var child= tr.children();
+        var id=parseInt(child[0].innerHTML);
+        console.log(id);
+        $.post('/seller/view-product', {id: id},function(err){
+            window.location.assign('/seller/view-product');
+        });
+    })
+</script>

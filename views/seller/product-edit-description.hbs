@@ -1,0 +1,64 @@
+<script
+  src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=ezd73nxbzc7bu6e86g2l82jbbffke0mwevwrnyvc5q8h89j6"></script>
+<script>
+  tinymce.init({
+    selector: '#description',
+    height: 600,
+    plugins: 'paste image link autolink lists table media',
+    menubar: false,
+    toolbar: [
+      'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright',
+      'forecolor backcolor',
+      'table link image media',
+    ],
+  });
+</script>
+    <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Add Description</h4>
+                                <form action="./editDescription" method="post">
+                                    <div class="form-body">
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">ID</label>
+                                                    <br>
+                                                    <input style="display: none" type="number" id="id" class="form-control" name="id" value="{{data.id}}" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input style="display: none" type="text" id="name" class="form-control" name="name" value={{data.name}} disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" rows="8" name="oldDes" id="oldDes" style="display: none">{{data.description}}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Description</label>
+                                                    <textarea class="form-control" rows="8" name="description" id="description"></textarea>
+                                                    <script>
+                                                        CKEDITOR.replace('description');
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>Append</button>
+                                        <button type="reset" class="btn btn-inverse">Cancel</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+

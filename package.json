@@ -1,0 +1,42 @@
+{
+    "name": "auction",
+    "version": "1.0.0",
+    "description": "Lap-trinh-ung-dung-Web",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Lucky-Lee-029/Auction.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Lucky-Lee-029/Auction/issues"
+    },
+    "homepage": "https://github.com/Lucky-Lee-029/Auction#readme",
+    "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^16.0.0",
+        "bcryptjs": "^2.4.3",
+        "cookie-parser": "^1.4.4",
+        "express": "^4.17.1",
+        "express-async-errors": "^3.1.1",
+        "express-handlebars": "^3.1.0",
+        "express-handlebars-sections": "^1.0.1",
+        "express-recaptcha": "^5.0.1",
+        "express-session": "^1.17.0",
+        "flash": "^1.1.0",
+        "fs": "0.0.1-security",
+        "moment": "^2.24.0",
+        "morgan": "^1.9.1",
+        "multer": "^1.4.2",
+        "mysql": "^2.17.1",
+        "nodemailer": "^6.4.2",
+        "numeral": "^2.0.6",
+        "passport": "^0.4.1",
+        "passport-facebook": "^3.0.0",
+        "passport-local": "^1.0.0"
+    }
+}

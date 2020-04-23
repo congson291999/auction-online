@@ -1,0 +1,126 @@
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor"></h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Product</a></li>
+                                <li class="breadcrumb-item active">Ended Product</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Info box Content -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Ended Product</h4>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name Product</th>
+                                                <th>Start Price</th>
+                                                <th>End Price</th>
+                                                <th>Step Price</th>
+                                                <th>Win price</th>
+                                                <th>Winner</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {{#each data}}
+                                            <tr>
+                                                <td>{{id}}</td>
+                                                <td>{{name}}</td>
+                                                <td>{{started}}</td>
+                                                <td>{{ended}}</td>
+                                                <td>{{step}}</td>
+                                                <td>{{price}}</td>
+                                                <td>{{win}}</td>
+                                                <td style="display:none">{{bidder}}</td>
+                                                <td>
+                                                    <a href="#myModal" class="col-12 btn btn-success mr-1"  id="my-modal">Feedback</a>
+                                                    <a href="#" class="col-12 btn btn-danger">Refuse</a>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+   <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Feedback</h4>
+          <button type="button" class="close" data-dismiss="modal"></button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="./feedback" method="POST">
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <input type="text" name="message" id="message" class="form-control" placeholder="Enter message" required>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating</label> <br>
+                    <input type="radio" name="rating" value="1" checked> Like
+                    <input type="radio" name="rating" value="0"> Dislike
+                </div>
+                <div class="form-group">
+                    {{!-- <label for="message">Product Id</label> --}}
+                    <input style="display: none" type="number" name="product" id="product" class="form-control" value="1">
+                </div>
+                <div class="form-group">
+                    {{!-- <label for="message">Bidder Id</label> --}}
+                    <input style="display: none" type="number" name="bidder" id="bidder" class="form-control" value="1">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success" id="submit">Send</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+    $('#my-modal').on('click', function() {
+        console.log("cam hia baby");
+        var tr =$(this).parents('tr').first();
+        var child= tr.children();
+        var product=parseInt(child[0].innerHTML);
+        var bidder=parseInt(child[7].innerHTML);
+        console.log(product);
+        console.log(bidder);
+        $(".modal-body #product").val(product);
+        $(".modal-body #bidder").val(bidder);
+        $("#myModal").modal('show');
+    });
+</script>
+  

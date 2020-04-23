@@ -1,0 +1,183 @@
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor"></h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                <li class="breadcrumb-item active">Feedback</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Ended Product</h4>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name Product</th>
+                                                <th>Image</th>
+                                                <th>Start Price</th>
+                                                <th>End Price</th>
+                                                <th>Step Price</th>
+                                                <th>Win price</th>
+                                                <th>Winner</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>
+                                                    <img src="../images/shop/dress/3.jpg" height="100px">
+                                                    <img src="../images/shop/dress/3-1.jpg" height="100px">
+                                                    <img src="../images/shop/dress/3-2.jpg" height="100px">
+                                                </td>
+                                                <td>200.000 VND</td>
+                                                <td>1.000.000 VND</td>
+                                                <td>1.000 VND</td>
+                                                <td>8.000.000 VND</td>
+                                                <td>abc.xyz</td>
+                                                <td>
+                                                    <a href="#" class="col-12 btn btn-success mr-1" data-toggle="modal" data-target="#feedbackModal">Feedback</a>
+
+                                                    <a href="#" class="col-12 btn btn-danger">Refuse</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>
+                                                    <img src="../images/shop/dress/3.jpg" height="100px">
+                                                    <img src="../images/shop/dress/3-1.jpg" height="100px">
+                                                    <img src="../images/shop/dress/3-2.jpg" height="100px">
+                                                </td>
+
+                                                <td>200.000 VND</td>
+                                                <td>1.000.000 VND</td>
+                                                <td>1.000 VND</td>
+                                                <td>8.000.000 VND</td>
+                                                <td>abc.xyz</td>
+                                                <td>
+                                                    <a href="#" class="col-12 btn btn-success mr-1" data-toggle="modal" data-target="#feedbackModal">Feedback</a>
+
+                                                    <a href="#" class="col-12 btn btn-danger">Refuse</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>
+                                                    <img src="../images/shop/dress/3.jpg" height="100px">
+                                                    <img src="../images/shop/dress/3-1.jpg" height="100px">
+                                                    <img src="../images/shop/dress/3-2.jpg" height="100px">
+                                                </td>
+
+                                                <td>200.000 VND</td>
+                                                <td>1.000.000 VND</td>
+                                                <td>1.000 VND</td>
+                                                <td>8.000.000 VND</td>
+                                                <td>abc.xyz</td>
+                                                <td>
+                                                    <a href="#" class="col-12 btn btn-success mr-1" data-toggle="modal" data-target="#feedbackModal">Feedback</a>
+
+                                                    <a href="#" class="col-12 btn btn-danger">Refuse</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>
+                                                    <img src="../images/shop/dress/3.jpg" height="100px">
+                                                    <img src="../images/shop/dress/3-1.jpg" height="100px">
+                                                    <img src="../images/shop/dress/3-2.jpg" height="100px">
+                                                </td>
+
+                                                <td>200.000 VND</td>
+                                                <td>1.000.000 VND</td>
+                                                <td>1.000 VND</td>
+                                                <td>8.000.000 VND</td>
+                                                <td>abc.xyz</td>
+                                                <td>
+                                                    <a href="#" class="col-12 btn btn-success mr-1" data-toggle="modal" data-target="#feedbackModal">Feedback</a>
+
+                                                    <a href="#" class="col-12 btn btn-danger">Refuse</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+{{#section 'footer'}}
+<script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+            $(document).ready(function() {
+                var table = $('#example').DataTable({
+                    "columnDefs": [{
+                        "visible": false,
+                        "targets": 2
+                    }],
+                    "order": [
+                        [2, 'asc']
+                    ],
+                    "displayLength": 25,
+                    "drawCallback": function(settings) {
+                        var api = this.api();
+                        var rows = api.rows({
+                            page: 'current'
+                        }).nodes();
+                        var last = null;
+                        api.column(2, {
+                            page: 'current'
+                        }).data().each(function(group, i) {
+                            if (last !== group) {
+                                $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                                last = group;
+                            }
+                        });
+                    }
+                });
+                // Order by the grouping
+                $('#example tbody').on('click', 'tr.group', function() {
+                    var currentOrder = table.order()[0];
+                    if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                        table.order([2, 'desc']).draw();
+                    } else {
+                        table.order([2, 'asc']).draw();
+                    }
+                });
+            });
+        });
+    </script>
+{{/section}}

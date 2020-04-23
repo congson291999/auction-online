@@ -1,0 +1,99 @@
+<div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor"></h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                <li class="breadcrumb-item active">Bidding Product</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Bidding Product</h4>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name Product</th>
+                                                <th>Image</th>
+                                                <th>Remaining Time</th>
+                                                <th>Current price</th>
+                                                <th>Winner</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {{#each data}}
+                                            {{#if him}}
+                                            <tr>
+                                                <td><b style="color:rgb(32, 77, 212)">{{id}}</b></td>
+                                                <td><b style="color:rgb(32, 77, 212)">{{name}}</b></td>
+                                                <td>
+                                                    <img src="../images/product/{{id}}/1.jpg" height="100px">
+                                                    <img src="../images/product/{{id}}/2.jpg" height="100px">
+                                                    <img src="../images/product/{{id}}/3.jpg" height="100px">
+                                                </td>
+                                                <td><b style="color:rgb(32, 77, 212)">{{duration}}</b></td>
+                                                <td><b style="color:rgb(32, 77, 212)">{{price}}</b></td>
+                                                <td><b style="color:rgb(32, 77, 212)">{{maskName winner}}</b></td>
+                                                <td>
+                                                    <button class="col-12 btn btn-success view">View</button>
+                                                </td>
+                                            </tr>
+                                            {{else}}
+                                             <tr style="none">
+                                                <td>{{id}}</td>
+                                                <td>{{name}}</td>
+                                                <td>
+                                                    <img src="../images/product/{{id}}/1.jpg" height="100px">
+                                                    <img src="../images/product/{{id}}/2.jpg" height="100px">
+                                                    <img src="../images/product/{{id}}/3.jpg" height="100px">
+                                                </td>
+                                                <td>{{duration}}</td>
+                                                <td>{{price}}</td>
+                                                <td>{{maskName winner}}</td>
+                                                <td>
+                                                    <button class="col-12 btn btn-success view">View</button>
+                                                </td>
+                                            </tr>                                           
+                                            {{/if}}
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+    </div>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+    $('.view').on("click", function(){
+        var tr =$(this).parents('tr').first();
+        var child= tr.children();
+        var id=parseInt(child[0].innerHTML);
+        console.log(id);
+        window.location.assign('/bidder/product/'+id);
+    })
+</script>

@@ -1,0 +1,251 @@
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li>Home</li>
+                <li>Categories</li>
+                <li class="active">{{cate.name}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content-wraper">
+    <div class="container">
+        <div class="row single-product-area mt-2">
+            <div class="col-lg-5 col-md-6">
+                <!-- Product Details Left -->
+                <div class="product-details-left">
+                    <div class="product-details-images slider-navigation-1">
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item"
+                                href="/images/product/{{product.id}}/1.jpg" data-gall="myGallery">
+                                <img src="/images/product/{{product.id}}/1.jpg" alt="product image">
+                            </a>
+                        </div>
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item"
+                                href="/images/product/{{product.id}}/1.jpg" data-gall="myGallery">
+                                <img src="/images/product/{{product.id}}/2.jpg" alt="product image">
+                            </a>
+                        </div>
+                        <div class="lg-image">
+                            <a class="popup-img venobox vbox-item"
+                                href="/images/product/{{product.id}}/1.jpg" data-gall="myGallery">
+                                <img src="/images/product/{{product.id}}/3.jpg" alt="product image">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-details-thumbs slider-thumbs-1">
+                        <div class="sm-image"><img src="/images/product/{{product.id}}/1.jpg"
+                                alt="product image thumb">
+                        </div>
+                        <div class="sm-image"><img src="/images/product/{{product.id}}/2.jpg"
+                                alt="product image thumb">
+                        </div>
+                        <div class="sm-image"><img src="/images/product/{{product.id}}/3.jpg"
+                                alt="product image thumb">
+                        </div>
+                    </div>
+                </div>
+                <!--// Product Details Left -->
+            </div>
+
+            <div class="col-lg-7 col-md-6">
+                <div class="product-details-view-content pt-20">
+                    <div class="product-info">
+                        <h2>{{product.name}}</h2>
+                        {{#if product.buynow}}
+                        <form method="POST">
+                        <div class="product-additional-info ">
+                                <button class="add-to-cart quantity" type="submit" style="background-color: crimson;color:rgb(15, 14, 14); font-weight: bold; "
+                                    formaction="/account/buynow/id={{product.id}}/gia={{product.buynow}}?retUrl=/products/{{product.id}}">Buy now: {{product.buynow}}</button>    
+                        </div>
+                        </form>
+                        {{/if}}
+                        <div class="pt-5">
+                            <ul>
+                                <div>Seller: <a href="#">{{maskName product.seller_name}}</a></div>
+                                <div>Seller's rating: {{product.seller_review}}</div>
+                            </ul>
+                        </div>
+
+                        <div><span class="start-date1"><span class="fa fa-calendar "></span>
+                                Post date: {{formatTime product.created_at}}</span></div>
+
+                        <div>
+                            <span class="end-date1">{{{product.end_time}}}</span>
+                        </div>
+                        <br>
+                        <div class="price-box">
+                            <span class="new-price"><span class="fa fa-gavel"></span> {{product.price}} VND</span>
+
+                        </div>
+
+                        <div class="single-add-to-cart">
+                            <form method="POST" class="cart-quantity">
+                                <div class="quantity">
+                                    <label>Tham gia đấu giá</label>
+                                    <div class="price-box">
+
+                                        <span>Bước giá: </span>
+                                        <span> <b>{{product.step}} </b> VND</span>
+                                    </div class="price-box">
+                                    <div class="form-group ml-2 mr-2">
+                                        <h5>Price</h5>
+                                        <input type="number" class="form-control w-100" {{#if product.step}}step="{{product.step}}"{{/if}} id="inputPrice" name="price" value="{{product.price}}" min="{{product.price}}">
+                                    </div>
+                                    <div class="form-group ml-2 mr-2">
+                                        <h5>Price end</h5>
+                                        <input type="number" class="form-control w-100" {{#if product.step}}step="{{product.step}}"{{/if}} id="inputPrice" name="price_end">
+                                    </div>
+                                    <button class="add-to-cart"
+                                    formaction="/login">Bid</button>
+                                </div>  
+                            </form>
+                        </div>
+                        <div class="product-additional-info pt-25">
+                            <form method="POST">
+                                <input id="txtId" name="id" style="display:none;"
+                                    value={{product.id}}></input>
+                                    <a class="add-to-cart" style="border:none; background:0" href="/login"><i class="fa fa-heart-o"> Thêm vào wishlist </a></i></button>
+                            </form>
+                        </div>
+                        <div class="block-reassurance">
+                            <ul>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-check-square-o"></i>
+                                        </div>
+                                        <p>Security policy</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-truck"></i>
+                                        </div>
+                                        <p>Delivery policy</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="reassurance-item">
+                                        <div class="reassurance-icon">
+                                            <i class="fa fa-exchange"></i>
+                                        </div>
+                                        <p> Return policy</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content-wraper end -->
+<!-- Begin Product Area -->
+<div class="product-area pt-35">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="li-product-tab">
+                    <ul class="nav li-product-menu">
+                        <li><a class="active" data-toggle="tab" href="#description"><span>Description</span></a></li>
+                        <li><a data-toggle="tab" href="#product-details"><span>Auction's history</span></a></li>
+                    </ul>
+                </div>
+                <!-- Begin Li's Tab Menu Content Area -->
+            </div>
+        </div>
+        <div class="tab-content">
+            <div id="description" class="tab-pane active show" role="tabpanel">
+                <div class="product-description">
+                    <span>{{{product.description}}}</span>
+                </div>
+            </div>
+            <div id="product-details" class="tab-pane" role="tabpanel">
+                <div class="product-details-manufacturer">
+                    <table id="auction-list" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Bidder</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each bidder}}
+                                <tr>
+                                    <td>{{tim}}</td>
+                                    <td>{{maskName name}}</td>
+                                    <td>{{price}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Area End Here -->
+
+<!-- Begin Li's Special Product Area -->
+<section class="product-area li-laptop-product Special-product pt-60 pb-45">
+    <div class="container">
+        <div class="row">
+            <!-- Begin Li's Section Area -->
+            <div class="col-lg-12">
+                <div class="li-section-title">
+                    <h2>
+                        <span>Các sản phẩm có liên quan</span>
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="special-product-active1 owl-carousel">
+                        {{#each relatedProduct}}
+                        <div class="col-lg-12">
+                            <!-- single-product-wrap start -->
+                            
+                            
+                            <div class="single-product-wrap">
+                                <div class="product-image">
+                                    <a href="/products/{{id}}">
+                                        <img src="/images/product/{{id}}/1.jpg" alt="Li's Product Image">
+                                    </a>
+                                </div>
+                                <div class="product_desc">
+                                    <div class="product_desc_info">
+                                        <h4><a class="product_name" href="/products/{{id}}"> {{name}} </a>
+                                        </h4>
+                                        <div class="price-box">
+                                            <span class="new-price new-price-2">{{price_start}} VND</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-product-wrap end -->
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <!-- Li's Section Area End Here -->
+        </div>
+    </div>
+</section>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script>
+    $('#add').on("click", function(){
+        var div =$(this).parents('div').first();
+        console.log(div);
+        var child= div.children();
+        var id=parseInt(child[0].innerHTML);
+        $.post('/wishlist/add', {id:id});
+    });
+</script>

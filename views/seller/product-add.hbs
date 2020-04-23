@@ -1,0 +1,163 @@
+{{!-- WYSIWYG Editor --}}
+{{!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css" media="all"
+  rel="stylesheet" type="text/css" /> --}}
+<script
+  src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=ezd73nxbzc7bu6e86g2l82jbbffke0mwevwrnyvc5q8h89j6"></script>
+<script>
+  tinymce.init({
+    selector: '#description',
+    height: 600,
+    plugins: 'paste image link autolink lists table media',
+    menubar: false,
+    toolbar: [
+      'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright',
+      'forecolor backcolor',
+      'table link image media',
+    ],
+  });
+</script>
+{{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js"></script> --}}
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="/"></a>Home</a></li>
+                <li class="active">Post product</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add Product</h4>
+                    <form action="./add" enctype="multipart/form-data" method="post" >
+                        <div class="form-body">
+                            <div class="row p-t-20">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Name Product</label>
+                                        <input type="text" id="name" class="form-control" name="name" value="" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Parent Category</label>
+                                        <select name="parent_id" class="form-control">
+                                            {{#each items}}
+                                                <option name="categories" value="{{id}}">{{name}}</option>
+                                            {{/each}}
+
+                                            {{!-- <option value="0">--Select--</option>
+                                            <option value="1">Mobile</option>
+                                            <option value="2">Laptop</option> --}}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Start Price</label>
+                                        <input type="number" id="start-price" class="form-control" name="startPrice" value="" required="" min="0">
+                                    
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">End Price</label>
+                                        <input type="number" id="end-price" class="form-control" name="endPrice" value="" min="0">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Step Price</label>
+                                        <input type="number" id="step-price" class="form-control" name="stepPrice" value="" required="">
+                                    </div>
+                                </div>
+                                {{!-- ============================================= --}}
+                                {{!-- image --}}
+                                <div class="col-md-6">
+                                    <div class="card shadow">
+                                        <h4 class="card-header">
+                                            Image
+                                        </h4>
+                                        <div class="card-body">
+                                        <div class="form-group">
+                                            <div class="file-loading">
+                                                <input id="fuMain" name="fuMain" type="file" multiple="" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                {{!-- ===================================================== --}}
+                                {{!-- AUTO RENEW --}}
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Auto-renew:</label>
+                                        {{!-- <div class="custom-control custom-radio custom-control-inline">
+                                            <input name="customRadioInline1" value="1" class="custom-control-input" id="customRadioInline1" type="radio" checked="checked">
+                                            <label class="custom-control-label" for="customRadioInline1">Yes</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input name="customRadioInline1" value="0" class="custom-control-input" id="customRadioInline2" type="radio">
+                                            <label class="custom-control-label" for="customRadioInline1">No</label>
+                                        </div> --}}
+                                        <label class="container"> Yes
+                                            <input type="radio" name="autorenew" id="renew" value="1">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="container"> No
+                                            <input type="radio" name="autorenew" id="renew" value="0">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        
+                                    </div>
+                                </div>
+                                {{!-- description --}}
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Description</label>
+                                        <textarea class="form-control" rows="8" name="description" id="description"></textarea>
+                                        <script>
+                                            CKEDITOR.replace('description');
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success" id="submit"> <i class="fa fa-check"></i>Upload</button>
+                            <button type="reset" class="btn btn-inverse">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+      $("#submit").click(function() {
+          var started=$("#start-price");
+          var start=parseInt(started.val());
+          var ended=$("#end-price");
+          var end=parseInt(ended.val());
+        if(end<start){
+            alert("Start price can not higher end price")
+        };
+          var fileUpload = $("#fuMain");
+          if (parseInt(fileUpload.get(0).files.length) < 3) {
+              alert("Upload minimum 3 files");
+              fileUpload.val("");
+          }
+      });
+  });
+</script>

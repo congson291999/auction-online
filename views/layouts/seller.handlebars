@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo-icon1.png">
+    <title>Auction</title>
+    <!-- chartist CSS -->
+    <link href="/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <link href="/dist/css/pages/ecommerce.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/dist/css/style.min.css" rel="stylesheet">
+</head>
+
+<body class="skin-default fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Auction online</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+                <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="dashboard.html">
+                            <b>
+                            </b>
+                            <!-- Logo text -->
+                            <span>
+                             <img src="../images/logo.png" alt="homepage" class="dark-logo ml-4" />
+                            </span> 
+                        </a>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-collapse">
+                        <!-- ============================================================== -->
+                        <!-- toggle and nav items -->
+                        <!-- ============================================================== -->
+                        <ul class="navbar-nav mr-auto">
+                            <!-- This is  -->
+                            <li class="nav-item"> <a class="nav-link nav-toggler d-block d-sm-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                            <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
+                            <!-- ============================================================== -->
+                            <!-- Search -->
+                            <!-- ============================================================== -->
+                            <li class="nav-item">
+                                <form class="app-search d-none d-md-block d-lg-block">
+                                    <input type="text" class="form-control" placeholder="Search & enter">
+                                </form>
+                            </li>
+                        </ul>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <ul class="navbar-nav my-lg-0">
+                             <li class="nav-item dropdown"> 
+                                    <a class="nav-link dropdown-toggle  u-dropdown link hide-menu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-settings"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right animated flipInY">
+                                        <!-- text-->
+                                        <a href="/profile" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+                                        <!-- text-->
+                                        <div class="dropdown-divider"></div>
+                                        <!-- text-->
+                                        <a href="/logout" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                                        <!-- text-->
+                                    </div>
+                                </li>
+                            </ul>
+                    </div>
+                </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+                <!-- Sidebar scroll-->
+                <div class="scroll-sidebar">
+                    <!-- User Profile-->
+                    <div class="user-profile">
+                        <div class="user-pro-body">
+                            <div><img src="/assets/images/users/2.jpg" alt="user-img" class="img-circle"></div>
+                            <div class="dropdown">
+                                <a href="/dashboard-home.html" class=" u-dropdown">Seller action online<span class="caret"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sidebar navigation-->
+                    <nav class="sidebar-nav">
+                        <ul id="sidebarnav">
+                            <li>
+                                <div class="hide-menu text-center">
+                                    <div id="eco-spark"></div>
+                                    <small>TOTAL EARNINGS - JUNE 2019</small>
+                                    <h4>$2,478.00</h4>
+                                </div>
+                            </li>
+                            <li> <a class=" waves-effect waves-dark" href="dashboard-home.html" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Dashboard</span></a>
+                            </li>
+                            <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">Product</span></a>
+                                <ul aria-expanded="false" class="collapse">
+                                    <li><a href="/seller/add">Add</a></li>
+                                    <li><a href="/seller/remaining">Action</a></li>
+                                    <li><a href="/seller/end">Success</a></li>
+                                </ul>
+                            </li>
+                            {{!-- <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-user"></i><span class="hide-menu">User</span></a>
+                                <ul aria-expanded="false" class="collapse">
+                                    <li><a href="bidder.html">Bidder</a></li>
+                                    <li><a href="seller-user.html">Seller</a></li>
+                                    <li><a href="upgrade-request-user.html">Upgrade Request</a></li>
+                                    <li><a href="seller-blocked.html">Blocked seller</a></li>
+                                    <li><a href="bidder-blocked.html">Blocked bidder</a></li>                               
+                                </ul>
+                            </li> --}}
+                            {{!-- <li> <a class="waves-effect waves-dark" href="category.html" aria-expanded="false"><i class="ti-palette"></i><span class="hide-menu">Category</span></a>
+                            </li>
+                            <li> <a class="waves-effect waves-dark" href="faqs.html" aria-expanded="false"><i class=" ti-star"></i><span class="hide-menu">FAQS</span></a>
+                            </li> --}}
+                        </ul>
+                    </nav>
+                    <!-- End Sidebar navigation -->
+                </div>
+                <!-- End Sidebar scroll-->
+            </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                {{{body}}}
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer">
+            © 2020 Auction online
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/assets/node_modules/popper/popper.min.js"></script>
+    <script src="/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="/dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="/dist/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="/assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="/assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/dist/js/custom.min.js"></script>
+    <script src="/assets/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <script src="/assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="/assets/node_modules/morrisjs/morris.min.js"></script>
+    <!--Custom JavaScript -->
+    <!-- This is data table -->
+    <script src="/assets/node_modules/datatables/jquery.dataTables.min.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <!-- end - This is for export functionality only -->
+</body>
+
+</html>

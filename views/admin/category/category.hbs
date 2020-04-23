@@ -1,0 +1,134 @@
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h4 class="text-themecolor"></h4>
+            </div>
+            <div class="col-md-7 align-self-center text-right">
+                <div class="d-flex justify-content-end align-items-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                        <li class="breadcrumb-item active">Category</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Info box Content -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    {{#if this.isEdit}}
+                    <div class="card-body">
+                        <h4 class="card-title">Edit Category</h4>
+                        <form method="post" action="">
+                            <div class="form-group">
+                                <label>ID category</label>
+                                <input type="text" name="id" class="form-control" value="{{this.single.id}}" disabled="">
+                            </div>
+                            <div class="form-group">
+                                <label>Name category</label>
+                                <input type="text" name="name" class="form-control" value="{{this.single.name}}">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" >Parent category</label>
+                                <select name="cate_parent" class="form-control">
+                                    <option value="0">NULL</option>
+                                    {{#each this.list}}
+                                        <option value="{{id}}" {{#if isSelected}}selected=""{{/if}}>{{name}}</option>
+                                    {{/each}}                                            
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success" formaction="/admin/category/edit/{{this.single.id}}"><i class="fa fa-pencil mr-1"></i>EDIT</button>
+                            <a class="btn btn-info" href="/admin/category" role="button"><i class="fa fa-plus-circle mr-1"></i>Create New</a>
+                        </form>
+                    </div>
+                    {{else}}
+                    <div class="card-body">
+                        <h4 class="card-title">ADD Category</h4>
+                        <form method="post" action="">
+                            <div class="form-group">
+                                <label>Name category</label>
+                                <input type="text" name="name" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" >Parent category</label>
+                                <select name="cate_parent" class="form-control">
+                                    <option value="0">NULL</option>
+                                    {{#each this.list}}
+                                        <option value="{{id}}" >{{name}}</option>
+                                    {{/each}}                                            
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-info" formaction="/admin/category/add"><i class="fa fa-check mr-1"></i>ADD</button>
+                        </form>
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="card">                         
+                    <div class="card-body">
+                        <h4 class="card-title">Category</h4>
+                        <div class="table-responsive m-t-40">
+                            <table id="myTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Category</th>
+                                        <th>Parent</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each this.list}}
+                                        <tr>
+                                        <td>{{id}}</td>
+                                        <td>{{name}}</td>
+                                        <td>{{nameParent}}</td>
+                                        <th>
+                                            {{#if isDel}}<a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-close text-danger"></i></a>
+                                            {{else}}<a href="/admin/category/delete/{{this.id}}"><i class="fa fa-close text-danger"></i> </a>{{/if}}
+                                            <a href="/admin/category/edit/{{this.id}}"> <i class="fa fa-pencil text-inverse p-l-5"></i> </a>
+                                        </th>
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title text-center">Can't Delete Category</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>This category exists product or subcategory</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+</div>

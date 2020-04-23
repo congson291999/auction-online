@@ -1,0 +1,275 @@
+{{!-- <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor"></h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                <li class="breadcrumb-item active">Profile</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Info box Content -->
+                <div class="row ">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1 class="text-center">My Profile</h1>
+                                <form method="post" action="/profile/edit">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group ">
+                                                <img src="/images/Son.jpg" height="500px" alt="user-img">
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                <input type="text" name="name" class="form-control" value="{{user.name}}">
+                                            </div>
+                                            <div class="form group">
+                                                <label>Point</label>
+                                                <input type="text" name="point" class="form-control" value="{{point}}" disabled="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Birthday</label>
+                                                <input type="date" name="birthday" class="form-control" value="{{birthday}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" name="email" class="form-control" value="{{user.email}}" disabled="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Adress</label>
+                                                <input type="text" name="address" class="form-control" value="{{user.address}}">
+                                            </div>
+                                            <p>{{hasupdateError}}</p>
+                                            <button type="submit" class="btn btn-info">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="text-center">Lists review</h1>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Product ID</th>
+                                            <th>Product Name</th>
+                                            <th>Love</th>
+                                            <th>Review</th>
+                                            <th class="text-nowrap">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each this.list}}
+                                        <tr>
+                                            <td>{{product_id}}</td>
+                                            <td>{{name}}</td>
+                                            {{#if love}}
+                                            <td>Like</td>
+                                            {{else}}
+                                            <td>Dislike</td>
+                                            {{/if}}
+                                            <td>{{review}}</td>
+                                            <td class="text-nowrap">
+                                                <a href="/product/{{product_id}}">View</a>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div> --}}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row mb-4">
+            <!-- Column -->
+            <div class="col-lg-4 col-xlg-3 col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <center class=""> <img src="../assets/images/users/9.jpg" class="img-circle" width="150" />
+                            <h4 class="card-title mt-10">{{user.name}}</h4>
+                        </center>
+                    </div>
+                    <div class="card-body"> 
+                        <div class="map-box">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508" width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div> <small class="text-muted db">Social Profile</small>
+                        <br/>
+                        <button class="btn btn-circle btn-secondary"><i class="fa fa-facebook"></i></button>
+                        <button class="btn btn-circle btn-secondary"><i class="fa fa-twitter"></i></button>
+                        <button class="btn btn-circle btn-secondary"><i class="fa fa-youtube"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-8 col-xlg-9 col-md-7">
+                <div class="card">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs profile-tab" role="tablist">
+                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <!--second tab-->
+                        <div class="tab-pane active" id="profile" role="tabpanel">
+                            <div class="card-body">
+                                {{!-- <form class="form-horizontal form-material">
+                                    <div class="form-group">
+                                        <label class="col-md-12">Full Name</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <div class="col-md-12">
+                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" value="password" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Phone No</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Message</label>
+                                        <div class="col-md-12">
+                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12">Select Country</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control form-control-line">
+                                                <option>London</option>
+                                                <option>India</option>
+                                                <option>Usa</option>
+                                                <option>Canada</option>
+                                                <option>Thailand</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-success">Update Profile</button>
+                                        </div>
+                                    </div>
+                                </form> --}}
+                                <form method="post" action="/profile/edit">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" class="form-control" value="{{user.name}}">
+                                    </div>
+                                    <div class="form group">
+                                        <label>Point</label>
+                                        <input type="text" name="point" class="form-control" value="{{point}}" disabled="">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label>Birthday</label>
+                                        <input type="date" name="birthday" class="form-control" value="{{birthday}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text" name="email" class="form-control" value="{{user.email}}" disabled="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Adress</label>
+                                        <input type="text" name="address" class="form-control" value="{{user.address}}">
+                                    </div>
+                                    <p>{{hasupdateError}}</p>
+                                    <button type="submit" class="btn btn-info">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="settings" role="tabpanel">
+                            <div class="card-body">
+                                <h4 class="card-title">Update password</h4>
+                                <form method="POST">
+                                    {{#if newFBAccount}}
+                                    {{else}}
+                                    <div class="form-group row">
+                                        <label for="inputOldPassword" class="col-sm-2 col-form-label">Old Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="inputOldPassword" placeholder="Old Password" name="oldPassword">
+                                        </div>
+                                    </div>
+                                    {{/if}}
+                                    <div class="form-group row">
+                                        <label for="inputNewPassword" class="col-sm-2 col-form-label">New Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="inputNewPassword" placeholder="New Password" name="newPassword">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="confirmNewPassword" class="col-sm-2 col-form-label">Confirm New Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="confirmNewPassword" placeholder="Confirm New Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+    </div>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        {{#if hasupdateError}}
+            alert('{{errorMessage}}')
+        {{/if}}
+    });
+</script>
